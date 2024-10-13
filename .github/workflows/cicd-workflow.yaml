@@ -25,3 +25,7 @@ jobs:
 
       - name: 'Start build job'
         run: echo "Starting the build job"
+
+      - name: 'Assemble JAR'
+        run: ./gradlew assemble
+
