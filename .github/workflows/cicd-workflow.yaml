@@ -35,3 +35,11 @@ jobs:
       - name: 'Print Version'
         run: | 
           echo "Version: ${{ env.version }}"
+
+      - name: 'Publish JAR'
+        uses: actions/upload-artifact@v3
+        with:
+          name: 'cicd-demo-${{env.VERSION}}-all.jar'
+          path: build/libs/*-all.jar
+
+
