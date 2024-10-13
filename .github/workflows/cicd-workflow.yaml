@@ -39,7 +39,7 @@ jobs:
       - name: 'Publish JAR'
         uses: actions/upload-artifact@v3
         with:
-          name: 'cicd-demo-${{env.VERSION}}-all.jar'
+          name: 'cicd-demo-${{ env.version }}-all.jar'
           path: build/libs/*-all.jar
 
 
