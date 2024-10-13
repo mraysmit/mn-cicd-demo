@@ -20,12 +20,13 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
 
-      - name: Build with Gradle
-        run: ./gradlew build
-
       - name: 'Start build job'
-        run: echo "Starting the build job"
+        run: echo "Starting the assemble job"
 
       - name: 'Assemble JAR'
         run: ./gradlew assemble
 
+      - name: 'Get Version Number'
+        run: |
+          echo "VERSION=$(./gradlew properties -q | grep "version:" |
+          awk '{print $2}')" >> $GITHUB_ENV
