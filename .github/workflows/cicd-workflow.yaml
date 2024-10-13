@@ -27,6 +27,11 @@ jobs:
         run: ./gradlew assemble
 
       - name: 'Get Version Number'
+        id: get_version
         run: |
-          echo "VERSION=$(./gradlew properties -q | grep "version:" |
-          awk '{print $2}')" >> $GITHUB_ENV
+          VERSION=$(./gradlew properties -q | grep "^version:" | awk '{print $2}')
+          echo "version=$VERSION" >> $GITHUB_ENV
+
+      - name: 'Print Version'
+        run: | 
+          echo "Version: ${{ env.version }}"
